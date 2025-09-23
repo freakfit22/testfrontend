@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #3F3CBB;       /* गहरा बैंगनी */
+  --color-secondary: #FF6B00;     /* नारंगी */
+  --color-accent: #D8B4FE;        /* हल्का बैंगनी */
+  --color-background: #111418;    /* गहरा ग्रे */
+  --color-text: #FFFFFF;          /* सफेद */
+  --color-muted: #9CA3AF;         /* हल्का ग्रे */
+}
