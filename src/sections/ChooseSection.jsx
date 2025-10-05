@@ -13,7 +13,7 @@ const MemberUsSection = () => {
       <div
         className="absolute top-0 mt-125 right-0 w-full h-[500px] md:h-[338px] z-[10] 
         bg-[radial-gradient(circle_at_top_left,_#672723_-5%,_#1f252b_70%)] 
-        md:bg-gradient-to-l md:from-[#FE4C00] md:via-[] md:to-[#F4753F_0%]"
+        md:bg-gradient-to-l md:from-[#a885b9] md:via-[] md:to-[#A3CBEC_0%]"
       ></div>
 
       {/* MAIN CONTENT */}
@@ -70,7 +70,7 @@ const MemberUsSection = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#FD4C00"
+                  stroke="#A3CBEC"
                   strokeWidth="2"
                   strokeLinecap="square"
                   strokeLinejoin="miter"

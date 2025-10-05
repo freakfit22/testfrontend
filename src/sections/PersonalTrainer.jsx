@@ -6,8 +6,8 @@ export default function PersonalTrainer() {
         <h1 className="text-3xl md:text-5xl font-bold">PERSONAL TRAINER</h1>
       </div> */}
 
-      {/* Content Row */}
-      <div className="flex flex-col md:flex-row lg:gap-8 items-start pl-10 md:pl-0 md:items-start">
+  {/* Content Row */}
+  <div className="flex flex-col md:flex-row lg:gap-8 items-center md:items-start px-0 md:px-0 w-full">
         {/* Left Image Box with image inside */}
         {/* <div className="hidden md:block md:w-[600px] md:h-[600px] bg-transparent border border-white relative overflow-hidden">
           <img
@@ -36,18 +36,18 @@ export default function PersonalTrainer() {
         {/* </div> */}
 
         <div className="w-full flex justify-center items-center mt-20 md:mt-20">
-          <div className="md:w-[750px] md:text-justify text-center md:pl-0">
+          <div className="w-full max-w-[750px] mx-auto text-center md:text-justify md:pl-0">
             <h2 className="text-5xl md:text-[80px] font-bold md:mb-12 mb-4">
               ABOUT US
             </h2>
             {/* <button className="my-4 w-[100px] md:w-[200px] h-[40px] md:h-[63px] text-xs md:text-2xl md:px-6 md:py-2 border border-[#FD4C00] text-white hover:bg-[#FD4C00] transition cursor-pointer">
               Learn More
             </button> */}
-            <p className="text-base py-5 pr-0 text-justify md:text-2xl text-gray-300">
+            <p className="text-base py-5 pr-0 text-center md:text-justify md:text-2xl text-gray-300">
               FreakFit is a trusted online fitness platform helping 5,000+ clients achieve real results through structured programs in Zumba, Dance Fitness, Strength Training, Yoga, and Face Yoga. Guided by certified trainers, we focus on safe, effective, and enjoyable sessions—empowering individuals to lose weight, build strength, and sustain a healthier lifestyle.
             </p>
           </div>
-        </div>
+        </div>   
       </div>
 
       <div className="mt-20 md:mt-40 md:border-t md:border-gray-600 w-full md:w-[1100px] mx-auto " />
