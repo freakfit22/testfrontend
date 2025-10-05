@@ -47,14 +47,14 @@ export default function MemberUsSection() {
             <div className="w-24 h-24 rounded-full overflow-hidden border border-white/20 mb-4">
               <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
             </div> 
-            <h3 className="text-[#FD4C00] font-semibold text-sm mb-1">{member.name}</h3>
+            <h3 className="text-[#a885b9] font-semibold text-sm mb-1">{member.name}</h3>
             <p className="text-xs text-white mb-2">{member.title}</p>
             <p className="text-xs text-white max-w-[200px]">{member.desc}</p>
           </div>
         ))}
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-10 px-4 md:px-16 pt-16 pb-28 bg-gradient-to-r from-[#FE4C00] to-[#F4753F_0%]">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-10 px-4 md:px-16 pt-16 pb-28 bg-gradient-to-r from-[#a885b9] to-[#A3CBEC_0%]">
         {teamMembers.slice(4).map((member, index) => (
           <div key={index} className="flex flex-col items-center text-center mt-10">
             <div className="w-24 h-24 rounded-full overflow-hidden border border-white/20 mb-4">

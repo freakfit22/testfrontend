@@ -43,7 +43,7 @@ Be the best version of YOU with FreakFit Online Zumba Classes—anytime, anywher
         {/* Right Section */}
         <div className="relative md:mt-30  mt-10  md:mr-20 flex justify-center">
           {/* Image box */}
-          <div className="w-[450px] h-[340px] md:w-[800px] md:h-[645px] md:mt-15 bg-white  overflow-hidden ml-60  relative">
+          <div className="w-[450px] h-[340px] md:w-[800px] md:h-[645px] md:mt-15 bg-white overflow-hidden -ml-6 md:ml-60 relative">
             <img
               src={Heroimg}
               alt="Gym"

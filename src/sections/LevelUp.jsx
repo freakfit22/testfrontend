@@ -22,7 +22,7 @@ const LevelUp = () => {
           </span>
           <br />
           <span className="block mt-4">
-            <span className="font-bold text-[#FD4C00]">Unlimited Access:</span>{" "}
+            <span className="font-bold text-[#a885b9]">Unlimited Access:</span>{" "}
             Join any number of sessions as often as you like while your plan is
             active!
           </span>

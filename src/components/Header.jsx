@@ -2,9 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo2 from "../assets/logo2.png";
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+const Header = ({ openLogin }) => {
+const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <>
       <header className="bg-transparent text-2xl absolute md:top-8 w-full z-50 text-white p-4 flex justify-between items-center">
@@ -22,9 +21,9 @@ const Header = () => {
         </div>
 
         <nav className="space-x-18 md:text-2xl font-semibold  hidden md:flex">
-          {/* <Link to="/" className="hover:underline hover:text-black">
+          <Link to="/" className="hover:underline hover:text-black">
             Home
-          </Link> */}
+          </Link>
           {/* <Link to="/product" className="hover:underline hover:text-black">
             Product
           </Link>
@@ -32,12 +31,12 @@ const Header = () => {
             Contact
           </Link> */}
 
-          {/* <Link
-            to="/login"
-            className="border border-white px-6 py-1 text-white md:ml-85 md:mr-50 font-medium hover:bg-white hover:text-black transition"
-          >
-            Login
-          </Link> */}
+          <button
+          onClick={openLogin} // <-- open popup
+          className="border border-white px-6 py-1 text-white md:ml-85 md:mr-50 font-medium hover:bg-white hover:text-black transition"
+        >
+          Login
+        </button>
         </nav>
 
         {/* Mobile Menu Icon */}
@@ -46,11 +45,11 @@ const Header = () => {
             onClick={() => setIsMenuOpen(true)}
             className="focus:outline-none"
           >
-            {/* <div className="flex flex-col space-y-1.5">
+            <div className="flex flex-col space-y-1.5">
               <span className="w-8 h-0.5 bg-white ml-2"></span>
               <span className="w-6 h-0.5 bg-white ml-4"></span>
               <span className="w-4 h-0.5 bg-white ml-6"></span>
-            </div> */}
+            </div>
           </button>
         </div>
       </header>
@@ -90,20 +89,22 @@ const Header = () => {
             &times;
           </button>
         </div>
-        {/* <nav className="flex flex-col p-4 space-y-4 text-lg  font-medium">
+        <nav className="flex flex-col p-4 space-y-4 text-lg font-medium">
           <Link to="/" onClick={() => setIsMenuOpen(false)}>
             Home
           </Link>
-          <Link to="/products" onClick={() => setIsMenuOpen(false)}>
+          {/* <Link to="/products" onClick={() => setIsMenuOpen(false)}>
             Product
           </Link>
           <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
             Contact
-          </Link>
-          <Link to="/login" onClick={() => setIsMenuOpen(false)}>
-            Login
-          </Link>
-        </nav> */}
+          </Link> */}
+           <button
+          onClick={() => { openLogin(); setIsMenuOpen(false); }}
+        >
+        Login
+        </button>
+        </nav>
       </div>
     </>
   );
