@@ -1,130 +1,23 @@
-<<<<<<< HEAD
 # React + Vite
-<!-- ✅ Required Dependencies -->
-cd FreakFit
-npm install
-npm run dev
-npm install -D tailwindcss postcss autoprefixer
-npm install react-router-dom
+
+<!-- Command for run admin pannel -->
+http://127.0.0.1:8000/admin/content/banner/
+
+<!-- To run Backend -->
+pip install r- requirement.txt
+python manage.py runserver
 
 
+<!-- Base url of localhost -->
+# VITE_API_BASE_URL=http://localhost:8000/zyrax
 
-| Package                     | Purpose                                     
-| ------------------------------------------------------------------- |
-| `react`                        | React core    
----------------------------------------------------------------------|                  
-| `react-dom`               | Renders React into the DOM           
----------------------------------------------------------------------|       
-| `react-router-dom`    | For client-side routing/navigation    
----------------------------------------------------------------------|       
-| `tailwindcss`               | Utility-first CSS framework (v4.1)   
----------------------------------------------------------------------|       
-| `autoprefixer`             | CSS autoprefixing for cross-browser support 
----------------------------------------------------------------------|       
-| `postcss`                     | Required for Tailwind CSS  
----------------------------------------------------------------------|       
-| `vite`                           | Development server and bundler 
----------------------------------------------------------------------|       
-
-<!-- Change in index.css: -->
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-<!-- 🧩 Install Tailwind CSS Manually (If not already set) -->
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
+<!-- Zyrax Color -->
+#5e57ff
 
 
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-<!-- Then add this in your tailwind.config.js: -->
-content: ["./index.html", "./src/**/*.{js,jsx}"]
+Currently, two official plugins are available:
 
-
-
-  <!-- Tech Stack Used -->
-
-<!-- 🔧 Frontend -->
-- React (with Vite) –   Fast build & dev server setup.
-
-- Tailwind CSS v4.1 –   Utility-first modern styling.
-
-- Manual Tailwind Setup –   Tailwind integrated without using CDN or CLI toolkits; directly configured in project for custom control.
-
-- React Router DOM–    For handling client-side routing.
-
----
-
-<!-- 🎨 UI Features -->
-
-- Hero Section- with gradient backgrounds and animated title
-
-<!-- - **Navigation Bar**   -->
-  - Logo with custom highlight (`FreakFit-` and `Describe`)
-  - Responsive design with navigation links (`Home`, `Product`, `Contact`, `Login`)
-  
-<!-- - **Personal Trainer Section**   -->
-  - About Us info
-  - Strength training card layout
-  - Large image box with styled container
-
-<!-- - **Team Members Showcase**   -->
-  - 8 trainers displayed in two sections
-  - Dynamic layout using grid
-  - Team data loaded via external JSON
-
-<!-- - **Login Button UI**   -->
-  - Hover effects
-  - Custom gradient background
-
-
-<!-- 📁 Project Folder Structure -->
-FreakFit/
-├── public/
-│ └── img/
-│ ├── member1.jpg
-│ ├── member2.jpg
-│ ├── ... (up to member8.jpg)
-│ └── vite.svg
-│
-├── src/
-│ ├── assets/
-│ │ ├── Gym.jpg
-│ │ ├── logo2.png
-│ │ └── react.svg
-│ │
-│ ├── components/
-│ │ ├── Footer.jsx
-│ │ ├── Header.jsx
-│ │ └── Login.jsx
-│ │
-│ ├── data/
-│ │ └── teamMembers.json
-│ │
-│ ├── pages/
-│ │ ├── Contact.jsx
-│ │ ├── Hero.jsx
-│ │ └── Product.jsx
-│ │
-│ ├── sections/
-│ │ ├── ChooseSection.jsx
-│ │ ├── LevelUp.jsx
-│ │ ├── MemberUsSection.jsx
-│ │ ├── PersonalTrainer.jsx
-│ │ ├── PricingSection.jsx
-│ │ ├── ProgramSection.jsx
-│ │ └── TrainingAbout.jsx
-│ │
-│ ├── App.jsx
-│ ├── App.css
-│ ├── index.css
-│ └── main.jsx
-│
-├── node_modules/
-├── package.json
-├── tailwind.config.js
-└── vite.config.js
-=======
-# FreakFitWeb
->>>>>>> 7f4b45e97f0b7947f0f4519b4e024ef834fc6ac9
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
