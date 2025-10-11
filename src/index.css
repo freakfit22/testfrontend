@@ -1,10 +1,213 @@
-@import "tailwindcss";
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --color-primary: #3F3CBB;       /* गहरा बैंगनी */
-  --color-secondary: #FF6B00;     /* नारंगी */
-  --color-accent: #D8B4FE;        /* हल्का बैंगनी */
-  --color-background: #111418;    /* गहरा ग्रे */
-  --color-text: #FFFFFF;          /* सफेद */
-  --color-muted: #9CA3AF;         /* हल्का ग्रे */
+  --font-sora: "Sora", sans-serif;
+  --font-code: "Source Code Pro", monospace;
+  --font-grotesk: "Space Grotesk", sans-serif;
+  color-scheme: dark;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar in all browsers */
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;  /* for Internet Explorer 10+ */
+  scrollbar-width: none;  /* for Firefox */
+}
+
+/* src/swiper.css */
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+
+/* Apply custom scrollbar class */
+@layer base {
+  body {
+    @apply font-sans bg-n-8 text-n-1 text-base;
+  }
+}
+
+/* Rotations */
+.rotate-45 { @apply rotate-[45deg]; }
+.rotate-90 { @apply rotate-[90deg]; }
+.rotate-135 { @apply rotate-[135deg]; }
+.rotate-180 { @apply rotate-[180deg]; }
+.rotate-225 { @apply rotate-[225deg]; }
+.rotate-270 { @apply rotate-[270deg]; }
+.rotate-315 { @apply rotate-[315deg]; }
+.rotate-360 { @apply rotate-[360deg]; }
+
+.-rotate-45 { @apply rotate-[-45deg]; }
+.-rotate-90 { @apply rotate-[-90deg]; }
+.-rotate-135 { @apply rotate-[-135deg]; }
+.-rotate-180 { @apply rotate-[-180deg]; }
+.-rotate-225 { @apply rotate-[-225deg]; }
+.-rotate-270 { @apply rotate-[-270deg]; }
+.-rotate-315 { @apply rotate-[-315deg]; }
+.-rotate-360 { @apply rotate-[-360deg]; }
+
+/* Gradient Background for the Hero Section */
+.gradient-background {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent);
+  position: relative;
+  z-index: 1;
+}
+
+/* Dynamic Blur Background */
+.dynamic-blur-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: blur(20px);
+  opacity: 0.8;
+}
+
+/* Gradient Background for Features Section */
+.gradient-background {
+  background: linear-gradient(135deg, #1a1a1a 0%, #000000 40%, #5d17eb 100%);
+  padding: 60px 0;
+}
+
+/* Neon Text Effect for Prices */
+.neon-text {
+  text-shadow: 0 0 8px #5e57ff, 0 0 15px #5e57ff;
+}
+
+/* Hover Effect for the Buy Now Button */
+button:hover {
+  background: transparent;
+}
+
+/* Adding some padding around the container */
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.inset-shadow {
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Team Member Card Animation */
+.radio-border {
+  position: relative;
+  padding: 0;
+  will-change: transform;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.radio-border::after,
+.radio-border::before {
+  --angle: 0deg;
+  content: '';
+  position: absolute;
+  height: 98%;
+  width: 98%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.05);
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent 10%,
+    white
+  );
+  z-index: -1;
+  border-radius: 10px;
+  animation: spin 5s linear infinite;
+}
+
+.radio-border::before {
+  filter: blur(0.5rem);
+  opacity: 0.5;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+/* Scale it to 1.05 to make the border bigger */
+.radio-border img {
+  display: block;
+  border-radius: 10px;
+  position: relative;
+}
+
+/* Classes Card Border */
+.card-border {
+  position: relative;
+  padding: 0;
+  z-index: 1;
+  will-change: transform;
+}
+
+.card-border::after,
+.card-border::before {
+  --angle: 0deg;
+  content: '';
+  position: absolute;
+  height: 98%;
+  width: 96%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.05);
+  background-image: conic-gradient(
+    from var(--angle),
+    #89f9e8,
+    #facb7b,
+    #d87cee,
+    #facb7b,
+    #9099fc,
+    #89f9e8
+  );
+  z-index: -1;
+  border-radius: 10px;
+  animation: spin 8s linear infinite;
+}
+
+.card-border::before {
+  filter: blur(0.5rem);
+  opacity: 0.5;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
 }
