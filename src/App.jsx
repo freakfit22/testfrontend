@@ -328,6 +328,7 @@ const App = () => {
                 <Hero imageUrl={imageUrl} />
                 <Services serviceData={servicePosts} imageUrl={imageUrl} benefitsData={benefitsData} />
                 <Benefits
+                  profile={profile}
                   benefits={benefitsData}
                   isAuthenticated={!!isAuthenticated}
                   openLoginModal={() => setIsLoginModalOpen(true)}
