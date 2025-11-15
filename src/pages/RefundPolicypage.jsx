@@ -1,4 +1,4 @@
-import RefundPolicy from "../footer/refund/RefundPolicy";
+import RefundPolicy from "./RefundPolicy";
 const RefundPolicypage = () => {
     return(
     <div>

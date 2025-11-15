@@ -34,3 +34,16 @@ export const fetchProfileData = async () => {
     throw error;
   }
 };
+
+
+// 📌 Fetch Our Mission Items (title + image)
+export const fetchOurMission = async () => {
+  const response = await axios.get(`${baseUrl}/ourmission/`);
+  return response.data;
+};
+
+// 📌 Fetch Certifications (title + image)
+export const fetchCertifications = async () => {
+  const response = await axios.get(`${baseUrl}/certifications/`);
+  return response.data;
+};

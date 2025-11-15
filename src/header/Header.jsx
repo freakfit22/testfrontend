@@ -9,14 +9,14 @@ import ProfileMenu from './ProfileMenu';
 import BottomNav from '../components/subComponents/BottumNav';
 import ProfileIcon from '../assets/profileIcon.jpg'
 
-const Header = ({ openLoginModal, openRegisterModal, profile}) => {
+const Header = ({ openLoginModal, openRegisterModal, profile }) => {
     const pathname = useLocation();
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
     const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
     const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('accessToken'));
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-            const image =  profile?.additional_info?.profile_picture;
+    const image = profile?.additional_info?.profile_picture;
 
     const navigate = useNavigate();
 
@@ -31,8 +31,9 @@ const Header = ({ openLoginModal, openRegisterModal, profile}) => {
     return (
         <div className="fixed top-0 left-0 w-full z-50 bg-black border-b-n-6 lg:bg-n-8/90 lg:backdrop-blur-sm">
             <div className="flex items-center justify-between px-5 lg:px-7.5 xl:px-10 max-lg:pt-4">
-                <a className="block w-[12rem] xl:mr-8 mt-2" href="/">
-                    <img src={logo} width={50} height={40} alt="Zyrax" />
+                <a className="flex items-center gap-2 w-auto xl:mr-8 mt-2" href="/">
+                    <img src={logo} width={50} height={40} alt="FreakFitHub" />
+                    <span className="text-white font-semibold text-2xl">FreakFitHub</span>
                 </a>
 
                 <nav className="hidden lg:flex fixed top-[5rem] left-0 right-0 bottom-0 bg-n-8 lg:static lg:mx-auto lg:bg-transparent">
@@ -69,10 +70,13 @@ const Header = ({ openLoginModal, openRegisterModal, profile}) => {
                     ) : (
                         <div className="relative">
                             <img
-                                src={image||ProfileIcon}
+                                src={image || ProfileIcon}
                                 alt="Profile"
                                 className="cursor-pointer w-10 h-10 rounded-full"
                                 onClick={toggleDropdown}
+                                style={{
+                                    filter: image ? "none" : "brightness(0) invert(1)" // makes fallback icon pure white
+                                }}
                             />
                             {isDropdownOpen && (
                                 <div className="absolute right-0 mt-15 bg-black shadow-lg rounded-lg z-20 opacity-90">
@@ -81,7 +85,7 @@ const Header = ({ openLoginModal, openRegisterModal, profile}) => {
                                         closeDropdown={closeDropdown}
                                         profile={profile}
                                     />
-                                   
+
                                 </div>
                             )}
                         </div>

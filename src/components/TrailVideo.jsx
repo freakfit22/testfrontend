@@ -24,7 +24,7 @@ const TrailVideo = ({ videos }) => {  // ✅ Destructure the `videos` prop
 
   return (
     <div className="min-h-screen bg-black">
-      <h1 className="text-3xl font-bold text-center py-8">Trail Videos</h1>
+      <h1 className="text-3xl font-bold text-center py-8">Classes</h1>
       <YouTubeCard videos={videos} />  {/* ✅ Pass the videos array properly */}
     </div>
   );

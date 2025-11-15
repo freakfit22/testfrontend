@@ -36,6 +36,11 @@ import TrailVideo from './components/TrailVideo';
 import ForgotPassword from './header/ForgotPassword';
 import RatingForm from './footer/RatingForm';
 import WhatsAppButton from './components/WhatsAppButton';
+import TermsConditionsPage from './pages/TermsConditionsPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import ShippingPolicy from './pages/ShippingPolicy';
+import FAQ from './helpsetting/FAQ';
+import WhyChooseUs from './Home/WhyChooseUs';
 
 const App = () => {
   const [imageUrl, setImageUrl] = useState(null);
@@ -190,32 +195,44 @@ const App = () => {
   }, []);
 
 
-  // Fetch Offers
-  useEffect(() => {
-    const fetchOffers = async () => {
-      try {
-        const response = await axios.get(`${baseUrl}/offers/`);
-        const fetchedOffers = response.data.map(offer => ({
-          id: offer.id,
-          title: offer.title,
-          text: offer.description,
-          amount: offer.amount,
-          discount: offer.discount,
-          duration: offer.duration,
-          isActive: offer.is_active,
-          backgroundUrl: benefitCard2,
-          iconUrl: benefitIcon1,
-          imageUrl: benefitImage2,
-        }));
 
-        setBenefitsData(fetchedOffers);
-      } catch (error) {
-        console.error('Error fetching offers:', error);
-        setError(error.message);
-      }
-    };
-    fetchOffers();
-  }, []);
+useEffect(() => {
+  const fetchOffers = async () => {
+    try {
+      const response = await axios.get(`${baseUrl}/offers/`);
+      
+      const fetchedOffers = response.data.map(offer => ({
+        id: offer.id,
+        title: offer.title,
+        text: offer.description,
+        amount: offer.amount,
+        discount: offer.discount,
+        duration: offer.duration,
+        isActive: offer.is_active,
+
+        // 🔥 YOUR OLD STATIC DESIGN FIELDS — unchanged
+        backgroundUrl: benefitCard2,
+        iconUrl: benefitIcon1,
+        imageUrl: benefitImage2,
+
+        // 🔥 NEW FIELD ADDED
+        features: offer.features || [],   // <-- ADDED HERE
+      }));
+
+      setBenefitsData(fetchedOffers);
+    } catch (error) {
+      console.error('Error fetching offers:', error);
+      setError(error.message);
+    }
+  };
+
+  fetchOffers();
+}, []);
+
+
+
+
+
 
   // fetch Testimonial
   useEffect(() => {
@@ -326,7 +343,8 @@ const App = () => {
             element={
               <>
                 <Hero imageUrl={imageUrl} />
-                <Services serviceData={servicePosts} imageUrl={imageUrl} benefitsData={benefitsData} />
+                {/* <Services serviceData={servicePosts} imageUrl={imageUrl} benefitsData={benefitsData} /> */}
+                <WhyChooseUs />
                 <Benefits
                   profile={profile}
                   benefits={benefitsData}
@@ -393,6 +411,10 @@ const App = () => {
           />}/>
           <Route path='/rating' element={<RatingForm isAuthenticated={isAuthenticated}
           />}/>
+          <Route path="/termsConditionsPage" element={<TermsConditionsPage />} />
+          <Route path="/privacyPolicyPage" element={<PrivacyPolicyPage />} />
+          <Route path="/shippingPolicy" element={<ShippingPolicy />} />
+          <Route path='/FAQ' element={<FAQ faqs={faqs}/>}/>
 
         </Routes>
       )}
