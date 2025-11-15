@@ -119,7 +119,7 @@ const useRazorpayPayment = () => {
         key: razorpay_key,
         amount: orderAmount,
         currency,
-        name: 'FreakFiit Subscription',
+        name: 'FreakFitHub Subscription',
         description: 'Access Premium Zumba Classes',
         order_id: order_id,
         handler: async function (response) {

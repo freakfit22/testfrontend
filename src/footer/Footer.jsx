@@ -18,31 +18,32 @@ const Footer = () => {
             <div className="w-full md:w-1/4 mb-6 flex flex-col items-center">
               <div className="flex mb-4 justify-center">
                 <img src={Logo} alt="Logo" className="h-15" />
+                
               </div>
 
               <div className="space-y-5 text-gray-400 text-center">
                 <div className="flex justify-center items-center">
                   <span className="mr-2">📧</span>
                   <a
-                    href="mailto:support@.com"
+                    href="mailto:info@freakfithub.in"
                     className="hover:underline"
                     style={{ '--hover-color': '#5d17eb' }}
                     onMouseEnter={(e) => (e.target.style.color = 'var(--hover-color)')}
                     onMouseLeave={(e) => (e.target.style.color = '')}
                   >
-                    support@.com
+                    info@freakfithub.in
                   </a>
                 </div>
                 <div className="flex justify-center items-center">
                   <span className="mr-2">📞</span>
                   <a
-                    href="tel:9528625403"
+                    href="tel:7599419859"
                     className="hover:underline"
                     style={{ '--hover-color': '#5d17eb' }}
                     onMouseEnter={(e) => (e.target.style.color = 'var(--hover-color)')}
                     onMouseLeave={(e) => (e.target.style.color = '')}
                   >
-                    95286 25403
+                    7599419859
                   </a>
                 </div>
               </div>
@@ -83,13 +84,38 @@ const Footer = () => {
                       Rate Us
                     </button>
                   </li>
+                   <li>
+                    <a
+                      href="/FAQ"
+                      className="text-gray-400 hover:text-blue-400 transition duration-300"
+                    >
+                      FAQ
+                    </a>
+                  </li>
                 </ul>
               </div>
               <div className="w-full md:w-1/4 mb-6 text-center">
+                <h3 className="text-gray-500 mb-4">Policy</h3>
+
                 <ul className="space-y-2">
                   <li>
-                    <a href="/refundPolicypage" className="text-gray-400 hover:text-blue-400">
+                    <a href="/refundPolicypage" className="text-white hover:text-blue-400">
                       Refund Policy
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/termsConditionsPage" className="text-white hover:text-blue-400">
+                      Terms&Conditions
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/privacyPolicyPage" className="text-white hover:text-blue-400">
+                      Privacy Policy
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/shippingPolicy" className="text-white hover:text-blue-400">
+                      Shipping Policy
                     </a>
                   </li>
                 </ul>
@@ -114,6 +140,7 @@ const Footer = () => {
                       Connect on WhatsApp
                     </a>
                   </li>
+                  
                 </ul>
               </div>
             </div>
@@ -129,7 +156,7 @@ const Footer = () => {
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className=" rounded-lg shadow-lg p-8 w-full max-w-md relative animate-fade-in">
-            
+
             {/* Close button */}
             <button
               onClick={closeModal}

@@ -4,11 +4,15 @@ import axios from 'axios';
 import cardBackground from '../assets/benefits/card-3.svg';
 import Button from '../components/subComponents/Button';
 import ForgotPassword from '../header/ForgotPassword';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Spinner from "../components/Spinner"; // update path as needed
 
-const Login = ({ closeModal, openRegisterModal, setIsAuthenticated, openLoginModal}) => {
+
+const Login = ({ closeModal, openRegisterModal, setIsAuthenticated, openLoginModal }) => {
   const [forgotPasswordModal, setForgotPasswordModal] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState('+91');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
@@ -53,7 +57,10 @@ const Login = ({ closeModal, openRegisterModal, setIsAuthenticated, openLoginMod
 
   return (
     <>
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-lg" onClick={handleBackdropClick}>
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-lg"
+        onClick={handleBackdropClick}
+      >
         <div
           className="relative p-6 sm:p-8 md:p-12 w-11/12 max-w-[320px] sm:max-w-md mx-auto rounded-lg shadow-lg bg-opacity-80"
           style={{
@@ -62,13 +69,23 @@ const Login = ({ closeModal, openRegisterModal, setIsAuthenticated, openLoginMod
             backgroundPosition: 'center',
           }}
         >
+          {/* Close Button */}
+          <button
+            onClick={closeModal}
+            className="absolute top-2 right-2 text-white bg-black bg-opacity-40 hover:bg-opacity-70 p-2 rounded-full transition-all"
+          >
+            ✕
+          </button>
+
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl sm:text-3xl text-left font-semibold text-white">Sign In</h2>
+            <h2 className="text-2xl sm:text-3xl font-semibold text-white">Sign In</h2>
           </div>
 
           <form onSubmit={handleLogin}>
             <div className="mb-2">
-              <label className="block text-white text-xs sm:text-sm font-bold mb-1 sm:mb-2">Phone Number</label>
+              <label className="block text-white text-xs sm:text-sm font-bold mb-1 sm:mb-2">
+                Phone Number
+              </label>
               <input
                 type="tel"
                 placeholder="Enter your phone number"
@@ -79,24 +96,36 @@ const Login = ({ closeModal, openRegisterModal, setIsAuthenticated, openLoginMod
                 required
               />
             </div>
-            <div className="mb-2">
-              <label className="block text-white text-xs sm:text-sm font-bold mb-1 sm:mb-2">Password</label>
+
+            {/* Password Field With Eye Icon */}
+            <div className="mb-2 relative">
+              <label className="block text-white text-xs sm:text-sm font-bold mb-1 sm:mb-2">
+                Password
+              </label>
+
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-2 sm:px-3 py-1 sm:py-2 border border-gray-300 rounded-lg focus:outline-none bg-black bg-opacity-40 text-white text-xs sm:text-sm"
+                className="w-full px-2 sm:px-3 py-1 sm:py-2 border border-gray-300 rounded-lg focus:outline-none bg-black bg-opacity-40 text-white text-xs sm:text-sm pr-10"
                 style={{ backdropFilter: 'blur(10px)' }}
                 required
               />
+
+              <span
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-9 sm:top-10 text-white cursor-pointer"
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
             </div>
 
             {error && <div className="text-red-500 text-xs mb-2">{error}</div>}
 
             <div className="mb-1">
               <button
-                type="button"  // Prevent form submission when clicked
+                type="button"
                 onClick={toggleForgotPasswordModal}
                 className="text-purple-300 underline hover:text-purple-500 text-xs sm:text-sm"
               >
@@ -120,11 +149,10 @@ const Login = ({ closeModal, openRegisterModal, setIsAuthenticated, openLoginMod
         </div>
       </div>
 
-      {forgotPasswordModal && <ForgotPassword closeModal={toggleForgotPasswordModal}/>}
+      {forgotPasswordModal && <ForgotPassword closeModal={toggleForgotPasswordModal} />}
     </>
   );
 };
 
 export default Login;
-
 
