@@ -44,14 +44,14 @@ const Hero = ({ imageUrl = [] }) => {
       id="hero"
     >
       <div className="container relative">
-        <div className="relative z-1 max-w-[62rem] mx-auto text-center text-white mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]">
-          <h1 className="h1 mb-6">
-            Dance Your Way To Fitness And Fun With{" "}
-            <span className="inline-block relative">
-              FreakFitHub{" "}
+        <div className="relative z-1 max-w-[90rem] mx-auto text-center text-white mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]">
+          <h1 className="h2 mb-6">
+            Invest in Your Health Today for a Stronger Tomorrow <br></br>With {' '}
+            <span className="inline-block relative text-7xl">
+            FreakFitHub{" "}
               <img
                 src={curve}
-                className="absolute top-full left-0 w-full xl:-mt-2"
+                className="absolute top-full left-0 w-full xl:-mt-1"
                 width={624}
                 height={28}
                 alt="Curve"
@@ -94,7 +94,7 @@ const Hero = ({ imageUrl = [] }) => {
           </div>
 
           {/* CTA Button */}
-          <Button href="/classes">Join Now</Button>
+          <Button href="#benefit">Join Now</Button>
 
           {/* 🔥 Blurred Background Image — Now Smooth, No Flash */}
           <div className="absolute -top-[54%] left-1/2 w-[234%] -translate-x-1/2 md:-top-[46%] md:w-[138%] lg:-top-[104%]">

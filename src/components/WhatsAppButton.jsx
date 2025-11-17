@@ -5,8 +5,8 @@ import Draggable from "react-draggable";
 import { FaWhatsapp } from "react-icons/fa";
 
 const WhatsAppButton = () => {
-  const phoneNumber = "7599419859";  // Replace with your WhatsApp number
-  const message = "Hello! 👋 I'm interested in your Zumba classes. Could you share the details?";
+  const phoneNumber = "9368537150";  // Replace with your WhatsApp number
+  const message = "Hello! I'm interested in your Online Zumba classes. Could you share the details?";
 
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);

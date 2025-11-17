@@ -8,6 +8,7 @@ import useRazorpayPayment from "../components/useRazorpayPayment";
 
 const Benefits = ({ benefits, profile, isAuthenticated, openLoginModal }) => {
   const { handlePayment, loading } = useRazorpayPayment();
+  console.log("Benefits Data:", benefits);
 
   const handleBuyNow = async (item) => {
     if (!isAuthenticated) {
@@ -60,7 +61,7 @@ const Benefits = ({ benefits, profile, isAuthenticated, openLoginModal }) => {
                   {/* PRICE SECTION */}
                   <div className="flex flex-col mb-2 sm:mb-4">
                     <p className="text-2xl sm:text-3xl font-semibold text-center" style={{ color: "#E6AFFC" }}>
-                       ₹{item.amount}
+                      ₹{item.amount}
                     </p>
                     {/* <p className="text-sm sm:text-base font-medium text-center" style={{ color: "#FFDE59" }}>
                       Discount: {item.discount}%
@@ -85,7 +86,14 @@ const Benefits = ({ benefits, profile, isAuthenticated, openLoginModal }) => {
 
                   {/* BOTTOM SECTION (ICON + BUY NOW) */}
                   <div className="flex items-center mt-auto pt-4">
-                    <a href="https://wa.me/9528625403?text=hii%20how%20are%20you%20bro">
+          
+                    <a
+                      href={`https://wa.me/919368537150?text=${encodeURIComponent(
+                        `Hi! I’d like to know more about your Zumba classes. Please share details about: ${item.title}`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <img
                         src={item.iconUrl}
                         width={32}
@@ -94,6 +102,8 @@ const Benefits = ({ benefits, profile, isAuthenticated, openLoginModal }) => {
                         className="rounded-full shadow-lg"
                       />
                     </a>
+
+
 
                     <button
                       onClick={() => handleBuyNow(item)}
