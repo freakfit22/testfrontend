@@ -87,7 +87,7 @@ const App = () => {
         setFaqs(faqData);
       } catch (error) {
         console.error('Error fetching data:', error);
-      } 
+      }
     };
     fetchData();
   }, []);
@@ -143,7 +143,7 @@ const App = () => {
         setGlobalLoading(false);
       }
     };
-    
+
     fetchBannerImage();
   }, []);
 
@@ -190,44 +190,44 @@ const App = () => {
         setError(error.message);
       }
     };
-  
+
     loadProfile();
   }, []);
 
 
 
-useEffect(() => {
-  const fetchOffers = async () => {
-    try {
-      const response = await axios.get(`${baseUrl}/offers/`);
-      
-      const fetchedOffers = response.data.map(offer => ({
-        id: offer.id,
-        title: offer.title,
-        text: offer.description,
-        amount: offer.amount,
-        discount: offer.discount,
-        duration: offer.duration,
-        isActive: offer.is_active,
+  useEffect(() => {
+    const fetchOffers = async () => {
+      try {
+        const response = await axios.get(`${baseUrl}/offers/`);
 
-        // 🔥 YOUR OLD STATIC DESIGN FIELDS — unchanged
-        backgroundUrl: benefitCard2,
-        iconUrl: benefitIcon1,
-        imageUrl: benefitImage2,
+        const fetchedOffers = response.data.map(offer => ({
+          id: offer.id,
+          title: offer.title,
+          text: offer.description,
+          amount: offer.amount,
+          discount: offer.discount,
+          duration: offer.duration,
+          isActive: offer.is_active,
 
-        // 🔥 NEW FIELD ADDED
-        features: offer.features || [],   // <-- ADDED HERE
-      }));
+          // 🔥 YOUR OLD STATIC DESIGN FIELDS — unchanged
+          backgroundUrl: benefitCard2,
+          iconUrl: benefitIcon1,
+          imageUrl: benefitImage2,
 
-      setBenefitsData(fetchedOffers);
-    } catch (error) {
-      console.error('Error fetching offers:', error);
-      setError(error.message);
-    }
-  };
+          // 🔥 NEW FIELD ADDED
+          features: offer.features || [],   // <-- ADDED HERE
+        }));
 
-  fetchOffers();
-}, []);
+        setBenefitsData(fetchedOffers);
+      } catch (error) {
+        console.error('Error fetching offers:', error);
+        setError(error.message);
+      }
+    };
+
+    fetchOffers();
+  }, []);
 
 
 
@@ -309,7 +309,7 @@ useEffect(() => {
       fetchAttendance();
     }
   }, []);
-// console.log(attendanceData);
+  // console.log(attendanceData);
 
 
   // Handle OTP Verification
@@ -332,11 +332,11 @@ useEffect(() => {
         openRegisterModal={() => setIsRegisterModalOpen(true)}
         profile={profile}
       />
-      <WhatsAppButton/>
+      <WhatsAppButton />
 
       {globalLoading ? (
-  <Spinner />
-) : (
+        <Spinner />
+      ) : (
         <Routes>
           <Route
             path="/"
@@ -345,12 +345,14 @@ useEffect(() => {
                 <Hero imageUrl={imageUrl} />
                 {/* <Services serviceData={servicePosts} imageUrl={imageUrl} benefitsData={benefitsData} /> */}
                 <WhyChooseUs />
-                <Benefits
-                  profile={profile}
-                  benefits={benefitsData}
-                  isAuthenticated={!!isAuthenticated}
-                  openLoginModal={() => setIsLoginModalOpen(true)}
-                />
+                <section id="benefit">
+                  <Benefits
+                    profile={profile}
+                    benefits={benefitsData}
+                    isAuthenticated={!!isAuthenticated}
+                    openLoginModal={() => setIsLoginModalOpen(true)}
+                  />
+                </section>
 
                 <BeforeAfter showSlider={true} testimonials={testimonials} />
                 <TeamSection tutorProfiles={tutorProfiles} />
@@ -406,15 +408,16 @@ useEffect(() => {
           />} />
           <Route path="/logout" element={<Logout setIsAuthenticated={setIsAuthenticated} />} />
           <Route path='/logoutmodel' element={<LogoutModal />} />
-          <Route path='/trailvideo' element={<TrailVideo  videos={videos}/>} />
+          <Route path='/trailvideo' element={<TrailVideo videos={videos} />} />
           <Route path='/fogpass' element={<ForgotPassword openLoginModal={() => setIsLoginModalOpen(true)}
-          />}/>
+          />} />
           <Route path='/rating' element={<RatingForm isAuthenticated={isAuthenticated}
-          />}/>
+          />} />
           <Route path="/termsConditionsPage" element={<TermsConditionsPage />} />
           <Route path="/privacyPolicyPage" element={<PrivacyPolicyPage />} />
           <Route path="/shippingPolicy" element={<ShippingPolicy />} />
-          <Route path='/FAQ' element={<FAQ faqs={faqs}/>}/>
+          <Route path='/FAQ' element={<FAQ faqs={faqs} />} />
+
 
         </Routes>
       )}
