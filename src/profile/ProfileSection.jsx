@@ -9,10 +9,8 @@ import Button from "../components/subComponents/Button";
 // IMPORT AVATARS
 import avatar1 from "../assets/avatars/avatar1.jpeg";
 import avatar2 from "../assets/avatars/avatar2.jpeg";
-import avatar3 from "../assets/avatars/avatar3.jpeg";
-import avatar4 from "../assets/avatars/avatar4.jpeg";
 import avatar5 from "../assets/avatars/avatar5.jpeg";
-import avatar6 from "../assets/avatars/avatar6.jpeg";
+import avatar6 from "../assets/avatars/Avatar6.jpeg";
 
 const ProfileSection = ({ profile }) => {
   // ✅ Hooks must always be at the top
