@@ -20,7 +20,6 @@ import React from "react";
 import YouTubeCard from "./YouTubeCard";
 
 const TrailVideo = ({ videos }) => {  // ✅ Destructure the `videos` prop
-  console.log("Videos in TrailVideo:", videos);  // Debug log
 
   return (
     <div className="min-h-screen bg-black">

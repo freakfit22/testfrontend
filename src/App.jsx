@@ -64,7 +64,6 @@ const App = () => {
   const [faqs, setFaqs] = useState([]);
 
   // console.log(videos);
-  console.log(attendanceData);
 
 
 
@@ -118,7 +117,7 @@ const App = () => {
 
         setSubscriptionData(response.data);
       } catch (error) {
-        console.error("Error fetching subscription data:", error);
+        // console.error("Error fetching subscription data:", error);
       }
     };
 
@@ -184,7 +183,6 @@ const App = () => {
         if (profileData) {
           setProfile(profileData);
           setProfileId(profileData.user.id);
-          console.log(profile);
         }
       } catch (error) {
         setError(error.message);

@@ -48,52 +48,104 @@ const SubscriptionCard = ({ benefits, isAuthenticated, openLoginModal }) => {
                 <div className="relative w-full max-w-[280px] sm:max-w-[300px] transform transition duration-300 hover:scale-105 mx-auto border-2 border-purple-500 rounded-lg bg-gray-900 bg-opacity-90">
                   
                   {/* Card Content */}
-                  <div className="relative z-10 flex flex-col min-h-[10rem] sm:min-h-[18rem] p-5 sm:p-6 pb-4 rounded-lg">
-                    
-                    {/* Title */}
-                    <h5 className="text-lg sm:text-xl text-white text-center font-semibold uppercase tracking-wide mb-2">
+                  <div className="relative z-10 flex flex-col min-h-[20rem] p-[1.6rem] pb-6 mb-3 rounded-lg bg-opacity-50">
+
+                  {/* TITLE + INFO BUTTON */}
+                  <div className="flex justify-center items-center mb-3">
+                    <h5 className="h5 text-lg text-white uppercase tracking-wide">
                       {item.title}
                     </h5>
 
-                    {/* Pricing & Discount Section */}
-                    <div className="flex flex-col items-center mb-2">
-                      <p className="text-2xl font-semibold text-purple-400">
-                        ₹{discountedAmount.toFixed(2)}
-                      </p>
-                      <p className="text-sm font-medium text-green-500">
-                        Discount: {item.discount}%
-                      </p>
-                      <p className="text-sm line-through text-purple-400">
-                        ₹{item.amount}
-                      </p>
-                      <p className="text-sm font-medium text-gray-300">
-                        Duration: {item.duration} days
-                      </p>
-                    </div>
 
-                    {/* Action Buttons */}
-                    <div className="flex flex-col items-center mt-auto gap-3">
-
-                      {/* WhatsApp Icon */}
-                      <a href={`https://wa.me/9084252037?text=Hello!%20I'm%20interested%20in%20the%20${item.title}%20plan.`}>
-                        <img
-                          src={item.iconUrl}
-                          width={40}
-                          height={40}
-                          alt={item.title}
-                          className="rounded-full shadow-lg"
-                        />
-                      </a>
-
-                      {/* Buy Now Button */}
-                      <button
-                        onClick={() => handleBuyNow(item)} 
-                        className="py-2 px-6 rounded-md font-medium text-white transition-all duration-300 bg-purple-600 hover:bg-purple-800 hover:shadow-lg focus:ring focus:ring-purple-500"
-                      >
-                        Buy Now
-                      </button>
-                    </div>
                   </div>
+
+                  {/* PRICE */}
+                  <p className="text-3xl font-semibold text-center mb-3" style={{ color: "#E6AFFC" }}>
+                    ₹{item.amount}
+                  </p>
+
+                  {/* -------------------------------------------
+                      VIEW 1: DEFAULT FEATURES LIST
+                  -------------------------------------------- */}
+                  {!isExpanded && (
+                    <ul className="text-gray-200 text-sm space-y-2 justify-center flex-1 flex flex-col  items-center">
+                      <li>Zumba + Other Activities</li>
+                      <li>Weekend Yoga Sessions</li>
+                      <li>Doubt Sessions</li>
+                      <li>Personalized Diet Plan</li>
+                      <li>Weekly Consultation</li>
+                      <li>Recordings of Live Classes</li>
+                      <li>Miss Day Extensions</li>
+                      <li>Flexible Time-Slots</li>
+                    </ul>
+                  )}
+
+                  {/* -------------------------------------------
+                      VIEW 2: DETAILED DESCRIPTION ON CLICK
+                  -------------------------------------------- */}
+                  {isExpanded && (
+                    <div className="text-gray-200 text-sm leading-relaxed space-y-2">
+
+                      <p className="font-semibold text-white text-center">
+                        Join Any Time Slot as per your Convenience:
+                      </p>
+                      <p className="text-center">6AM, 7AM, 8AM, 9AM, 10AM</p>
+                      <p className="text-center">5PM, 6PM, 7PM, 8PM</p>
+
+                      <p className="font-semibold text-white mt-3">
+                        After Registration — What Happens Next:
+                      </p>
+
+                      <ul className="list-disc list-inside space-y-1">
+                        <li>✔ Select Your Preferred Class Slot</li>
+                        <li>📩 Join Our Exclusive Women-Only WhatsApp Group</li>
+                        <li>📝 Fill Your Diet Form</li>
+                        <li>📞 Personalized Diet Consultation Call</li>
+                        <li>🎯 Set Your Fitness Goals</li>
+                        <li>🔗 Session Links shared daily in WhatsApp group</li>
+                      </ul>
+
+                    </div>
+                  )}
+
+                  {/* --- BUY NOW + WHATSAPP --- */}
+                  <div className="flex items-center mt-auto pt-4">
+
+                    <a
+                      href={`https://wa.me/919368537150?text=${encodeURIComponent(
+                        `Hi! I’d like to know more about your Zumba classes. Please share details about: ${item.title}`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        src={item.iconUrl}
+                        width={32}
+                        height={32}
+                        alt={item.title}
+                        className="rounded-full shadow-lg"
+                      />
+                    </a>
+                    <button
+                      onClick={() => toggleDetails(item.id)}
+                      style={{ backgroundColor: "#3C184B" }}
+                      className="text-white hover:bg-[#522066] p-2 ml-2 rounded-full transition"
+                    >
+                      <Info size={18} />
+                    </button>
+
+
+                    <button
+                      onClick={() => handleBuyNow(item)}
+                      disabled={loading}
+                      style={{ backgroundColor: "#3C184B" }}
+                      className="ml-auto py-2 px-5 rounded-md font-medium text-white transition-all duration-300 hover:shadow-neon disabled:opacity-50"
+                    >
+                      {loading ? "Processing..." : "Buy Now"}
+                    </button>
+                  </div>
+
+                </div>
                 </div>
               </SwiperSlide>
             );
