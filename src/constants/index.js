@@ -64,7 +64,7 @@ import {
     },
     {
       id: "6",
-      title: "Classes",
+      title: "Visuals",
       url: "/trailvideo",
     },
       {

@@ -18,7 +18,7 @@ const Footer = () => {
             <div className="w-full md:w-1/4 mb-6 flex flex-col items-center">
               <div className="flex mb-4 justify-center">
                 <img src={Logo} alt="Logo" className="h-15" />
-                
+
               </div>
 
               <div className="space-y-5 text-gray-400 text-center">
@@ -50,18 +50,13 @@ const Footer = () => {
 
               <div className="flex space-x-4 mt-4 justify-center">
                 <a
-                  href="/"
-                  className="text-gray-400 hover:text-blue-400"
+                  href="https://www.instagram.com/freakfithub_official?igsh=djEyOGVpNTRmb3g0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-pink-500"
                   aria-label="Instagram"
                 >
-                  <i className="fab fa-instagram"></i>
-                </a>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-blue-400"
-                  aria-label="LinkedIn"
-                >
-                  <i className="fab fa-linkedin-in"></i>
+                  <i className="fab fa-instagram text-xl"></i>
                 </a>
               </div>
             </div>
@@ -84,7 +79,7 @@ const Footer = () => {
                       Rate Us
                     </button>
                   </li>
-                   <li>
+                  <li>
                     <a
                       href="/FAQ"
                       className="text-gray-400 hover:text-blue-400 transition duration-300"
@@ -140,7 +135,7 @@ const Footer = () => {
                       Connect on WhatsApp
                     </a>
                   </li>
-                  
+
                 </ul>
               </div>
             </div>

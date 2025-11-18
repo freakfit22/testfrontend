@@ -1,5 +1,4 @@
-import testImg from "../../assets/testsrc/testImage1.png";
-import testImg2 from "../../assets/testsrc/ClassBG.jpg";
+import testImg from "../../assets/hero/about.jpeg";
 
 const AboutDetails = () => {
     return (
@@ -12,7 +11,7 @@ const AboutDetails = () => {
                     <img
                         src={testImg}
                         alt="Group outdoors"
-                        className="rounded-xl w-full aspect-[3/2] object-cover"
+                        className="rounded-xl w-full aspect-[1/1] object-cover"
                     />
                 </div>
 
