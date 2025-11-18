@@ -47,8 +47,8 @@ const Hero = ({ imageUrl = [] }) => {
         <div className="relative z-1 max-w-[90rem] mx-auto text-center text-white mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]">
           <h1 className="h2 mb-6">
             Invest in Your Health Today for a Stronger Tomorrow <br></br>With {' '}
-            <span className="inline-block relative text-7xl">
-            FreakFitHub{" "}
+            <span className="inline-block relative text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
+              FreakFitHub{" "}
               <img
                 src={curve}
                 className="absolute top-full left-0 w-full xl:-mt-1"
@@ -73,21 +73,20 @@ const Hero = ({ imageUrl = [] }) => {
           <div className="relative z-1 p-0.5 rounded-2xl bg-conic-gradient mb-10 shadow-[0_0_15px_5px_rgba(0,0,0,0.5)]">
             <div className="relative rounded-[1rem]">
               <div className="aspect-[12/6] rounded-b-[0.9rem] rounded-t-[0.9rem]  overflow-hidden bg-black">
-              <div
-                className={`aspect-[12/6] rounded-b-[0.9rem]  overflow-hidden transition-opacity duration-500 ${
-                  isTransitioning ? "opacity-0" : "opacity-100"
-                }`}
-               >
-                {imageUrl.length > 0 ? (
-                  <img
-                    src={imageUrl[currentSlide]}
-                    className="w-full h-full object-cover"
-                    alt="Slide"
-                  />
-                ) : (
-                  <p>Loading banner...</p>
-                )}
-              </div>
+                <div
+                  className={`aspect-[12/6] rounded-b-[0.9rem]  overflow-hidden transition-opacity duration-500 ${isTransitioning ? "opacity-0" : "opacity-100"
+                    }`}
+                >
+                  {imageUrl.length > 0 ? (
+                    <img
+                      src={imageUrl[currentSlide]}
+                      className="w-full h-full object-cover"
+                      alt="Slide"
+                    />
+                  ) : (
+                    <p>Loading banner...</p>
+                  )}
+                </div>
               </div>
             </div>
             <Gradient />

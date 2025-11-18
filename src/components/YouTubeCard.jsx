@@ -86,7 +86,6 @@ import axios from "axios";
 const YouTubeCard = ({ videos }) => {
   const [videoData, setVideoData] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
-console.log(videos);
 useEffect(() => {
   const fetchVideos = async () => {
     try {

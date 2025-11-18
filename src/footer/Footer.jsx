@@ -129,9 +129,13 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="https://wa.me/9528625403?text=hii%20how%20are%20you%20bro"
-                      className="inline-block text-white px-4 py-2 rounded-md hover:bg-[#5e57ff]"
+                      href={`https://wa.me/919368537150?text=${encodeURIComponent(
+                        `Hi! I want to know more about FreakFitHub classes. Please share details about:`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
+
                       Connect on WhatsApp
                     </a>
                   </li>
