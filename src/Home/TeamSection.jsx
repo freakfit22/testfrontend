@@ -1,5 +1,6 @@
 
 
+
 import React, { useState, useRef } from "react";
 import Section from "../components/subComponents/Section";
 import CardContent from "./CardContent";
@@ -16,37 +17,40 @@ const TeamSection = ({ tutorProfiles }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [selectedVideo, setSelectedVideo] = useState(null);
 
-  const swiperRef = useRef(null); // ⭐ added swiper reference
+  const swiperRef = useRef(null);
 
   const handleCardClick = () => {
     if (swiperRef.current) {
-      swiperRef.current.autoplay.stop(); // ⭐ Stop slider autoplay
+      swiperRef.current.autoplay.stop();
     }
   };
 
   const resumeAutoplay = () => {
     if (swiperRef.current) {
-      swiperRef.current.autoplay.start(); // ⭐ Resume slider autoplay
+      swiperRef.current.autoplay.start();
     }
   };
 
   const openVideo = (videoLink) => {
-    handleCardClick(); // Stop slider when video opens
+    handleCardClick();
     setSelectedVideo(videoLink);
   };
 
   const closeVideo = () => {
     setSelectedVideo(null);
-    resumeAutoplay(); // Resume slider when video closes
+    resumeAutoplay();
   };
 
   return (
     <Section>
       <div>
-        <h2 className="text-center text-2xl font-bold mb-6">OUR FITNESS COACH</h2>
+        <h2 className="text-center text-2xl font-bold mb-6">
+          OUR FITNESS COACH
+        </h2>
 
         {tutorProfiles && tutorProfiles.length > 0 ? (
           <Swiper
+            loop={true}   // ⭐ Enables smooth infinite looping
             breakpoints={{
               0: { slidesPerView: 1, spaceBetween: 15 },
               640: { slidesPerView: 2, spaceBetween: 15 },
@@ -61,7 +65,7 @@ const TeamSection = ({ tutorProfiles }) => {
             pagination={{ clickable: true }}
             modules={[Autoplay, FreeMode, Pagination]}
             className="max-w-[95%] mx-auto"
-            onSwiper={(swiper) => (swiperRef.current = swiper)}  // ⭐ Save swiper object
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
           >
             {tutorProfiles.map((member, index) => (
               <SwiperSlide key={index}>
@@ -69,7 +73,7 @@ const TeamSection = ({ tutorProfiles }) => {
                   className="relative flex justify-center items-center w-full max-w-[280px] rounded-xl overflow-hidden shadow-2xl cursor-pointer transition-all ease-in-out duration-500 mx-auto"
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  onClick={handleCardClick}  // ⭐ Stop autoplay when card clicked
+                  onClick={handleCardClick}
                 >
                   {/* Blurred Image Background */}
                   <div className="absolute top-0 left-0 w-full h-full rounded-xl overflow-hidden border-4 border-black shadow-2xl">
@@ -105,7 +109,7 @@ const TeamSection = ({ tutorProfiles }) => {
                     isExpanded={hoveredIndex === index}
                     closeExpandedCard={() => {
                       setHoveredIndex(null);
-                      resumeAutoplay(); // ⭐ Resume autoplay after collapse
+                      resumeAutoplay();
                     }}
                     formatDescription={(desc) => desc}
                   />

@@ -1,67 +1,52 @@
 
 
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
 import { FiCamera } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import ImageModal from "./ImageModal"; 
 import Button from "../components/subComponents/Button";
 
-const ProfileSection = ({ profile }) => {
-  const [newProfilePicture, setNewProfilePicture] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [showMenu, setShowMenu] = useState(false);
-  const [showModal, setShowModal] = useState(false); // State for modal visibility
-  const navigate = useNavigate();
-  const baseUrl = import.meta.env.VITE_API_BASE_URL;
-  const userId = profile?.user?.id;
+// IMPORT AVATARS
+import avatar1 from "../assets/avatars/avatar1.jpeg";
+import avatar2 from "../assets/avatars/avatar2.jpeg";
+import avatar3 from "../assets/avatars/avatar3.jpeg";
+import avatar4 from "../assets/avatars/avatar4.jpeg";
+import avatar5 from "../assets/avatars/avatar5.jpeg";
+import avatar6 from "../assets/avatars/avatar6.jpeg";
 
-  if (!profile) {
-    return <div>Loading...</div>;
-  }
+const ProfileSection = ({ profile }) => {
+  // ✅ Hooks must always be at the top
+  const [profilePicture, setProfilePicture] = useState(null);
+  const [showMenu, setShowMenu] = useState(false);
+  const [showAvatarMenu, setShowAvatarMenu] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   
-  console.log(profile);
+  const navigate = useNavigate();
+
+  // Load saved avatar
+  useEffect(() => {
+    const savedAvatar = localStorage.getItem("user_avatar");
+    if (savedAvatar) {
+      setProfilePicture(savedAvatar);
+    } else {
+      setProfilePicture(avatar1);
+    }
+  }, []);
+
+  // ⛔ Conditional rendering must come AFTER hooks
+  if (!profile) return <div>Loading...</div>;
 
   const { first_name, last_name, phone_number, date_of_birth } = profile;
-  const profile_picture =
-    newProfilePicture || profile?.additional_info?.profile_picture;
 
-  const handleImageChange = async (event) => {
-    const file = event.target.files[0];
-    if (!file) return;
+  const avatars = [avatar1, avatar2, avatar5, avatar6];
 
-    const formData = new FormData();
-    formData.append("profile_picture", file);
+  // Select avatar
+  const handleAvatarSelect = (avatar) => {
+    setProfilePicture(avatar);
+    localStorage.setItem("user_avatar", avatar);
 
-    try {
-      setIsLoading(true);
-      const response = await axios.post(
-        `${baseUrl}/user-profile/${userId}/additional-info/`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      setNewProfilePicture(response.data.profile_picture);
-    } catch (error) {
-      console.error("Error uploading image:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleMenuToggle = () => {
-    setShowMenu(!showMenu);
-  };
-
-  const handleViewProfilePicture = () => {
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
+    setShowAvatarMenu(false);
+    setShowMenu(false);
   };
 
   return (
@@ -69,13 +54,14 @@ const ProfileSection = ({ profile }) => {
       <div className="relative">
         <div className="relative w-40 h-40 rounded-full overflow-hidden">
           <img
-            src={profile_picture}
+            src={profilePicture}
             alt="Profile"
             className="w-full h-full object-cover"
           />
+
           <button
             className="absolute bottom-2 right-2 bg-gray-800 p-2 rounded-full"
-            onClick={handleMenuToggle}
+            onClick={() => setShowMenu(!showMenu)}
           >
             <FiCamera size={24} className="text-white" />
           </button>
@@ -86,23 +72,31 @@ const ProfileSection = ({ profile }) => {
             <ul className="text-left">
               <li
                 className="p-2 text-black hover:bg-gray-100 cursor-pointer"
-                onClick={handleViewProfilePicture}
+                onClick={() => setShowModal(true)}
               >
-                See profile picture
+                See Profile Picture
               </li>
-              <li className="p-2 text-black hover:bg-gray-100 cursor-pointer">
-                <label htmlFor="profilePictureInput" className="cursor-pointer">
-                  Choose profile picture
-                </label>
-                <input
-                  type="file"
-                  onChange={handleImageChange}
-                  accept="image/*"
-                  id="profilePictureInput"
-                  className="hidden"
-                />
+
+              <li
+                className="p-2 text-black hover:bg-gray-100 cursor-pointer"
+                onClick={() => setShowAvatarMenu(!showAvatarMenu)}
+              >
+                Choose Avatar
               </li>
             </ul>
+          </div>
+        )}
+
+        {showAvatarMenu && (
+          <div className="absolute mt-2 w-56 bg-white border border-gray-200 rounded-md shadow-md p-3 grid grid-cols-4 gap-2">
+            {avatars.map((avatar, index) => (
+              <img
+                key={index}
+                src={avatar}
+                className="w-12 h-12 rounded-full cursor-pointer hover:ring-2 hover:ring-purple-600"
+                onClick={() => handleAvatarSelect(avatar)}
+              />
+            ))}
           </div>
         )}
       </div>
@@ -113,16 +107,15 @@ const ProfileSection = ({ profile }) => {
         <p className="text-gray-100 text-sm">{date_of_birth}</p>
       </div>
 
-      {/* Subscription & Help & Support Button */}
       <Button
-        className="mt-4 px-4 py-2  font-bold rounded-lg"
+        className="mt-4 px-4 py-2 font-bold rounded-lg"
         onClick={() => navigate("/helpsetting")}
       >
         Subscription Details
       </Button>
 
       {showModal && (
-        <ImageModal imageUrl={profile_picture} onClose={handleCloseModal} />
+        <ImageModal imageUrl={profilePicture} onClose={() => setShowModal(false)} />
       )}
     </div>
   );

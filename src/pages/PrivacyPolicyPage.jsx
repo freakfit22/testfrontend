@@ -84,7 +84,7 @@ export default function PrivacyPolicyPage() {
             <li><strong>Deletion:</strong> Request erasure of personal data after program completion, subject to legal retention rules.</li>
             <li><strong>Grievance Redressal:</strong> File a complaint if you believe data has been mishandled.</li>
           </ul>
-          <p className="mt-2">To exercise any of these rights, email: <a className="text-orange-400 underline" href="mailto:privacy@freakfithub.in">privacy@freakfithub.in</a>.</p>
+          <p className="mt-2">To exercise any of these rights, email: <a className="text-orange-400 underline" href="mailto:info@freakfithub.in"> info@freakfithub.in</a>.</p>
 
           <h2 className="text-xl font-semibold">7. Data Retention</h2>
           <p>
@@ -100,7 +100,7 @@ export default function PrivacyPolicyPage() {
 
           <h2 className="text-xl font-semibold">9. Updates to this Policy</h2>
           <p>
-            We may update this Privacy Policy periodically. The latest version will always be available at <a className="text-orange-400 underline" href="https://www.freakfithub.in">www.freakfithub.in</a> with the revision date.
+            We may update this Privacy Policy periodically. The latest version will always be available at <a className="text-orange-400 underline" href="https://www.freakfithub.com">www.freakfithub.com</a> with the revision date.
           </p>
 
           <h2 className="text-xl font-semibold">10. Jurisdiction & Dispute Resolution</h2>
